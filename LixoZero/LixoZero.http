@@ -1,0 +1,6 @@
+@LixoZero_HostAddress = http://localhost:5230
+</Project>
+GET {{LixoZero_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

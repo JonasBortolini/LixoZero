@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\vaiserexcluidoquandoobancoestiverfuncionando.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\vaiserexcluidoquandoobancoestiverfuncionando.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\usuariopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\usuariopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\residuopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\residuopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\publicacaopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\publicacaopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\ecopontopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\ecopontopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\controllers\\residuocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\controllers\\residuocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 237,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PublicacaoPersistencia.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\PublicacaoPersistencia.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Persistencia\\PublicacaoPersistencia.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\PublicacaoPersistencia.cs",
+              "RelativeToolTip": "LixoZero\\Persistencia\\PublicacaoPersistencia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:34:02.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EcoPontoPersistencia.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
+              "RelativeToolTip": "LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:34:01.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResiduoPersistencia.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\ResiduoPersistencia.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Persistencia\\ResiduoPersistencia.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\ResiduoPersistencia.cs",
+              "RelativeToolTip": "LixoZero\\Persistencia\\ResiduoPersistencia.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:29:59.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Model\\Usuario.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Model\\Usuario.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Model\\Usuario.cs",
+              "RelativeToolTip": "LixoZero\\Model\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:19:46.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VaiSerExcluidoQuandoOBancoEstiverFuncionando.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\VaiSerExcluidoQuandoOBancoEstiverFuncionando.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Persistencia\\VaiSerExcluidoQuandoOBancoEstiverFuncionando.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\VaiSerExcluidoQuandoOBancoEstiverFuncionando.cs",
+              "RelativeToolTip": "LixoZero\\Persistencia\\VaiSerExcluidoQuandoOBancoEstiverFuncionando.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAowMEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:18:16.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuarioPersistencia.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\UsuarioPersistencia.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Persistencia\\UsuarioPersistencia.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\UsuarioPersistencia.cs",
+              "RelativeToolTip": "LixoZero\\Persistencia\\UsuarioPersistencia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:17:54.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ResiduoController.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Controllers\\ResiduoController.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Controllers\\ResiduoController.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Controllers\\ResiduoController.cs",
+              "RelativeToolTip": "LixoZero\\Controllers\\ResiduoController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:13:13.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "LixoZero\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:13:12.416Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
