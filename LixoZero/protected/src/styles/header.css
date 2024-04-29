@@ -1,0 +1,43 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    padding: 35px 10px;
+    margin: 0 auto;
+}
+
+.menu .logo {
+    width: 120px;
+    height: 60px;
+}
+
+.menu .pages {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu .pages li {
+    display: flex;
+}
+
+.menu .pages .page-name {
+    color: var(--cyan);
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.menu .pages .page-name:hover {
+    transform: translateY(-1.5px);
+}
+
+.menu .pages .page-name.cms {
+    background-color: var(--cyan);
+    color: var(--white);
+}
+
+.menu .pages .page-name:hover:not(.cms) {
+    border-color: var(--cyan);
+}
