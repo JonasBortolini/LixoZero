@@ -29,10 +29,8 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
     font-family: Arial, sans-serif;
-}
-
-body {
     margin: 0;
+    background-color: var(--ligth-green);
 }
 
 img {

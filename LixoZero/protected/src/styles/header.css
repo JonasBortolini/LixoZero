@@ -1,3 +1,7 @@
+header {
+    background-color: var(--white);
+}
+
 .menu {
     display: flex;
     justify-content: space-between;

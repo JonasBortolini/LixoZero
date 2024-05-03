@@ -1,0 +1,47 @@
+.error {
+    padding: 80px 0;
+}
+
+.display {
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    position: relative;
+}
+
+.display h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--white);
+}
+
+.display p {
+    position: relative;
+    z-index: -1;
+    font-size: 22rem;
+    line-height: 1;
+    font-weight: 800;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 4.5px;
+    -webkit-text-stroke-color: var(--cyan);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button a {
+    color: var(--white);
+    background-color: var(--cyan);
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.button a:hover {
+    transform: translateY(-1.5px);
+}
