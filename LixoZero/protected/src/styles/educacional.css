@@ -1,0 +1,48 @@
+.educacional-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    max-width: 1280px;
+    padding: 100px 10px;
+    margin: 0 auto;
+}
+
+.h1 {
+    font-size: 60px;
+    color: var(--white);
+}
+
+select {
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--cyan);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 250px;
+    height: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    font-family: serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+select:focus {
+    outline: 1px solid var(--ligth-green);
+}
+
+.publicacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.publicacoes .publicacao {
+    max-width: 540px;
+    width: 100%;
+}
