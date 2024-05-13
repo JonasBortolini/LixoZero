@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/educacional.css'
+import ImagemLixo from '../assets/ImagenLixo.png';
 
 const Residuos = [
     {
@@ -37,7 +38,7 @@ const Publicacoes = [
         "Id": 1,
         "Titulo": "A importância da reciclagem",
         "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida sapien quis suscipit ultricies. Cras pulvinar sem et ante eleifend, vel aliquam ipsum congue.",
-        "Imagem": "imagem1.jpg",
+        "Imagem": "ImagemLixo.png",
         "Data": "2024-05-07",
         "Slug": "a-importancia-da-reciclagem",
         "Residuos": [
@@ -49,7 +50,7 @@ const Publicacoes = [
         "Id": 2,
         "Titulo": "Novas tecnologias para tratamento de resíduos",
         "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget nisi eu nisl iaculis interdum. Quisque nec pretium elit, nec venenatis mi. Integer at justo leo. ",
-        "Imagem": "imagem2.jpg",
+        "Imagem": "ImagemLixo.png",
         "Data": "2024-05-06",
         "Slug": "novas-tecnologias-para-tratamento-de-residuos",
         "Residuos": [
@@ -61,7 +62,7 @@ const Publicacoes = [
         "Id": 3,
         "Titulo": "Redução do consumo de plástico",
         "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo, magna ut tincidunt lobortis, libero magna vehicula nunc, nec pellentesque quam ipsum et sapien.",
-        "Imagem": "imagem3.jpg",
+        "Imagem": "ImagemLixo.png",
         "Data": "2024-05-05",
         "Slug": "reducao-do-consumo-de-plastico",
         "Residuos": [
@@ -72,7 +73,7 @@ const Publicacoes = [
         "Id": 4,
         "Titulo": "Como reciclar papel corretamente",
         "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id felis a justo vestibulum sollicitudin eu vitae elit. Nam sed ex at lectus ultricies rutrum.",
-        "Imagem": "imagem4.jpg",
+        "Imagem": "ImagemLixo.png",
         "Data": "2024-05-04",
         "Slug": "como-reciclar-papel-corretamente",
         "Residuos": [
@@ -104,11 +105,11 @@ function Educacional() {
         <div className='publicacoes'>
             {publicacoesFiltradas.map(publicacao => (
                 <a className='publicacao' href={`educacional/${publicacao.Slug}`} key={publicacao.Id}>
-                    <img src={publicacao.Imagem} alt={publicacao.Titulo} />
+                    <img src={ImagemLixo} alt={publicacao.Titulo} />
                     <h3 className='title'>{publicacao.Titulo}</h3>
                     <p className='date'>Data: {publicacao.Data}</p>
                     {publicacao.Residuos.length > 0 && (
-                        <p className='category'>Categoria: {publicacao.Residuos[0].Tipo}</p>
+                        <p className='category'>{publicacao.Residuos[0].Tipo}</p>
                     )}
                 </a>
             ))}
