@@ -26,14 +26,14 @@ namespace LixoZero.Controllers
 
         [HttpPost]
         [Route("Adicionar")]
-        public void Adicionar(Residuo residuo) => ResiduoPersistencia.Adicionar(residuo);
+        public int Adicionar(Residuo residuo) => ResiduoPersistencia.Adicionar(residuo);
 
         [HttpPost]
         [Route("Atualizar")]
-        public void Atualizar(Residuo residuo) => ResiduoPersistencia.Atualizar(residuo);
+        public bool Atualizar(Residuo residuo) => ResiduoPersistencia.Atualizar(residuo);
 
         [HttpPost]
         [Route("Excluir")]
-        public void Excluir(int id) => ResiduoPersistencia.Excluir(id);
+        public bool Excluir(int id) => ResiduoPersistencia.Excluir(id);
     }
 }

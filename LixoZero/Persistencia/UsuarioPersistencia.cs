@@ -1,30 +1,47 @@
 ﻿using LixoZero.Model;
+using MySql.Data.MySqlClient;
 
 namespace LixoZero.Persistencia
 {
     public class UsuarioPersistencia
     {
+        private DatabaseConnection dbConnection;
+
+        public UsuarioPersistencia()
+        {
+            dbConnection = new DatabaseConnection();
+        }
+
         public bool CriarLogin(Usuario usuario)
         {
-            //aqui sera feito o tratamento para salvar no banco 
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "INSERT INTO Usuario (Login, Email, Senha) VALUES (@Login, @Email, @Senha)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Login", usuario.Login);
+                command.Parameters.AddWithValue("@Email", usuario.Email);
+                command.Parameters.AddWithValue("@Senha", usuario.Senha);
 
-            usuario.Id = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Usuarios.OrderBy(r => r.Id).LastOrDefault().Id + 1;
-            var usuarios = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Usuarios.ToList();
-            usuarios.Add(usuario);
+                int result = command.ExecuteNonQuery();
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Usuarios = usuarios;
-
-            return true;
+                return result > 0;
+            }
         }
 
         public bool Logar(string login_Email, string senha)
         {
-            var usuario = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Usuarios.FirstOrDefault(x => (x.Login.Equals(login_Email) || x.Email.Equals(login_Email)) && x.Senha.Equals(senha));
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT * FROM Usuario WHERE (Login = @LoginEmail OR Email = @LoginEmail) AND Senha = @Senha";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@LoginEmail", login_Email);
+                command.Parameters.AddWithValue("@Senha", senha);
 
-            if (usuario is null)
-                return false;
-
-            return true;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    return reader.HasRows;
+                }
+            }
         }
     }
 }

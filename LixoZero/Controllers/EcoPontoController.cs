@@ -18,26 +18,21 @@ namespace LixoZero.Controllers
 
         [HttpPost]
         [Route("ObterTodos")]
-        public IEnumerable<EcoPonto> ObterTodos() => EcoPontoPersistencia.ObterTodos().OfType<EcoPonto>();
-
+        public IEnumerable<EcoPonto> ObterTodos() => EcoPontoPersistencia.ObterTodos();
         [HttpPost]
         [Route("ObterPorId")]
-        public EcoPonto ObterPorId(int id) => EcoPontoPersistencia.ObterPorId(id) as EcoPonto;
-
-        [HttpPost]
-        [Route("ObterPorIdDoResiduo")]
-        public IEnumerable<EcoPonto> ObterPorIdDoResiduo(int id) => EcoPontoPersistencia.ObterPorIdDoResiduo(id).OfType<EcoPonto>();
+        public EcoPonto ObterPorId(int id) => EcoPontoPersistencia.ObterPorId(id);
 
         [HttpPost]
         [Route("Adicionar")]
-        public void Adicionar(EcoPonto ecoPonto) => EcoPontoPersistencia.Adicionar(ecoPonto);
+        public int Adicionar(EcoPonto ecoPonto) => EcoPontoPersistencia.Adicionar(ecoPonto);
 
         [HttpPost]
         [Route("Atualizar")]
-        public void Atualizar(EcoPonto ecoPonto) => EcoPontoPersistencia.Atualizar(ecoPonto);
+        public bool Atualizar(EcoPonto ecoPonto) => EcoPontoPersistencia.Atualizar(ecoPonto);
 
         [HttpPost]
         [Route("Excluir")]
-        public void Excluir(int id) => EcoPontoPersistencia.Excluir(id);
+        public bool Excluir(int id) => EcoPontoPersistencia.Excluir(id);
     }
 }

@@ -25,19 +25,15 @@ namespace LixoZero.Controllers
         public Publicacao ObterPorId(int id) => PublicacaoPersistencia.ObterPorId(id) as Publicacao;
 
         [HttpPost]
-        [Route("ObterPorIdDoResiduo")]
-        public IEnumerable<Publicacao> ObterPorIdDoResiduo(int id) => PublicacaoPersistencia.ObterPorIdDoResiduo(id).OfType<Publicacao>();
-
-        [HttpPost]
         [Route("Adicionar")]
-        public void Adicionar(Publicacao publicacao) => PublicacaoPersistencia.Adicionar(publicacao);
+        public int Adicionar(Publicacao publicacao) => PublicacaoPersistencia.Adicionar(publicacao);
 
         [HttpPost]
         [Route("Atualizar")]
-        public void Atualizar(Publicacao publicacao) => PublicacaoPersistencia.Atualizar(publicacao);
+        public bool Atualizar(Publicacao publicacao) => PublicacaoPersistencia.Atualizar(publicacao);
 
         [HttpPost]
         [Route("Excluir")]
-        public void Excluir(int id) => PublicacaoPersistencia.Excluir(id);
+        public bool Excluir(int id) => PublicacaoPersistencia.Excluir(id);
     }
 }

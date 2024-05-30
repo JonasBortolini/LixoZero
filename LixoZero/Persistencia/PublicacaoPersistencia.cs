@@ -1,57 +1,187 @@
 ﻿using LixoZero.Model;
-using LixoZero.Model.Interface;
-using LixoZero.Persistencia.Inferface;
+using MySql.Data.MySqlClient;
 
 namespace LixoZero.Persistencia
 {
-    public class PublicacaoPersistencia : IPersistencia
+    public class PublicacaoPersistencia
     {
-        public IEnumerable<IObjeto> ObterTodos()
-        {
-            //aqui vai ser feito todo o tratamento para transformar os dados do banco em objetos
-            //Publicação
-            //Residuo
+        private DatabaseConnection dbConnection;
+        private ResiduoPersistencia residuoPersistencia;
 
-            return VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes;
+        public PublicacaoPersistencia()
+        {
+            dbConnection = new DatabaseConnection();
+            residuoPersistencia = new ResiduoPersistencia();
         }
 
-        public IObjeto ObterPorId(int id) => ObterTodos().FirstOrDefault(r => r.Id.Equals(id)) ?? new Publicacao();
-
-        public IEnumerable<IObjeto> ObterPorIdDoResiduo(int id) => ObterTodos().OfType<Publicacao>().Where(r => r.Residuos.Any(r => r.Id.Equals(id)));
-
-        public void Adicionar(IObjeto objeto)
+        public IEnumerable<Publicacao> ObterTodos()
         {
-            //aqui sera feito o tratamento para salvar no banco 
-            //lembrar de atualizar o Residuo nas tabelas de relacionamento
+            List<Publicacao> publicacoes = new List<Publicacao>();
 
-            objeto.Id = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes.OrderBy(r => r.Id).LastOrDefault().Id + 1;
-            var publicacoes = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes.ToList();
-            publicacoes.Add(objeto as Publicacao);
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT * FROM Publicacao";
+                MySqlCommand command = new MySqlCommand(query, connection);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes = publicacoes;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Publicacao publicacao = new Publicacao
+                        {
+                            Id = reader.GetInt32("Id"),
+                            Titulo = reader.GetString("Titulo"),
+                            Conteudo = reader.GetString("Conteudo"),
+                            Imagem = reader.GetString("Imagem"),
+                            Data = reader.GetString("Data"),
+                            Residuos = ObterResiduosPorPublicacaoId(reader.GetInt32("Id"))
+                        };
+
+                        publicacoes.Add(publicacao);
+                    }
+                }
+            }
+
+            return publicacoes;
         }
 
-        public void Atualizar(IObjeto objeto)
+        private IEnumerable<Residuo> ObterResiduosPorPublicacaoId(int publicacaoId)
         {
-            //aqui sera feito o tratamento para atualizar no banco
-            //lembrar de atualizar o Residuo nas tabelas de relacionamento
+            List<Residuo> residuos = new List<Residuo>();
 
-            var publicacoes = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes.ToList();
-            publicacoes.Remove(publicacoes.FirstOrDefault(r => r.Id.Equals(objeto.Id)));
-            publicacoes.Add(objeto as Publicacao);
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT ResiduoId FROM Publicacao_Residuo WHERE PublicacaoId = @PublicacaoId";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@PublicacaoId", publicacaoId);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes = publicacoes.OrderBy(r => r.Id);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int residuoId = reader.GetInt32("ResiduoId");
+                        Residuo residuo = residuoPersistencia.ObterPorId(residuoId);
+                        if (residuo != null)
+                        {
+                            residuos.Add(residuo);
+                        }
+                    }
+                }
+            }
+
+            return residuos;
         }
 
-        public void Excluir(int id)
+        public Publicacao ObterPorId(int id)
         {
-            //aqui sera feito o tratamento para excluir no banco
-            //lembrar de atualizar o Residuo nas tabelas de relacionamento
+            Publicacao publicacao = null;
 
-            var publicacoes = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes.ToList();
-            publicacoes.Remove(publicacoes.FirstOrDefault(r => r.Id.Equals(id)));
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT * FROM Publicacao WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Publicacoes = publicacoes;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        publicacao = new Publicacao
+                        {
+                            Id = reader.GetInt32("Id"),
+                            Titulo = reader.GetString("Titulo"),
+                            Conteudo = reader.GetString("Conteudo"),
+                            Imagem = reader.GetString("Imagem"),
+                            Data = reader.GetString("Data"),
+                            Residuos = ObterResiduosPorPublicacaoId(id)
+                        };
+                    }
+                }
+            }
+
+            return publicacao;
+        }
+
+        public int Adicionar(Publicacao publicacao)
+        {
+            int id = 0;
+
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "INSERT INTO Publicacao (Titulo, Conteudo, Imagem, Data) VALUES (@Titulo, @Conteudo, @Imagem, @Data)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Titulo", publicacao.Titulo);
+                command.Parameters.AddWithValue("@Conteudo", publicacao.Conteudo);
+                command.Parameters.AddWithValue("@Imagem", publicacao.Imagem);
+                command.Parameters.AddWithValue("@Data", publicacao.Data);
+
+                command.ExecuteNonQuery();
+
+                id = (int)command.LastInsertedId;
+
+                foreach (var residuo in publicacao.Residuos)
+                {
+                    query = "INSERT INTO Publicacao_Residuo (PublicacaoId, ResiduoId) VALUES (@PublicacaoId, @ResiduoId)";
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@PublicacaoId", id);
+                    command.Parameters.AddWithValue("@ResiduoId", residuo.Id);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            return id;
+        }
+
+        public bool Atualizar(Publicacao publicacao)
+        {
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "UPDATE Publicacao SET Titulo = @Titulo, Conteudo = @Conteudo, Imagem = @Imagem, Data = @Data WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", publicacao.Id);
+                command.Parameters.AddWithValue("@Titulo", publicacao.Titulo);
+                command.Parameters.AddWithValue("@Conteudo", publicacao.Conteudo);
+                command.Parameters.AddWithValue("@Imagem", publicacao.Imagem);
+                command.Parameters.AddWithValue("@Data", publicacao.Data);
+
+                int result = command.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    query = "DELETE FROM Publicacao_Residuo WHERE PublicacaoId = @PublicacaoId";
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@PublicacaoId", publicacao.Id);
+
+                    command.ExecuteNonQuery();
+
+                    foreach (var residuo in publicacao.Residuos)
+                    {
+                        query = "INSERT INTO Publicacao_Residuo (PublicacaoId, ResiduoId) VALUES (@PublicacaoId, @ResiduoId)";
+                        command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@PublicacaoId", publicacao.Id);
+                        command.Parameters.AddWithValue("@ResiduoId", residuo.Id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                return result > 0;
+            }
+        }
+
+        public bool Excluir(int id)
+        {
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "DELETE FROM Publicacao WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
+
+                int result = command.ExecuteNonQuery();
+
+                return result > 0;
+            }
         }
     }
 }

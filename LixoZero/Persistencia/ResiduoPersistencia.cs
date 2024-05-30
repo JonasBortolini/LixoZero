@@ -1,51 +1,119 @@
 ﻿using LixoZero.Model;
-using LixoZero.Model.Interface;
-using LixoZero.Persistencia.Inferface;
+using MySql.Data.MySqlClient;
 
 namespace LixoZero.Persistencia
 {
-    public class ResiduoPersistencia : IPersistencia
+    public class ResiduoPersistencia
     {
-        public IEnumerable<IObjeto> ObterTodos()
-        {
-            //aqui vai ser feito todo o tratamento para transformar os dados do banco em objetos
-            //Residuo
+        private DatabaseConnection dbConnection;
 
-            return VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos;
+        public ResiduoPersistencia()
+        {
+            dbConnection = new DatabaseConnection();
         }
 
-        public IObjeto ObterPorId(int id) => ObterTodos().FirstOrDefault(r => r.Id.Equals(id)) ?? new Residuo();
- 
-        public void Adicionar(IObjeto objeto)
+        public IEnumerable<Residuo> ObterTodos()
         {
-            //aqui sera feito o tratamento para salvar no banco 
+            List<Residuo> residuos = new List<Residuo>();
 
-            objeto.Id = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos.OrderBy(r => r.Id).LastOrDefault().Id + 1;
-            var residuos = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos.ToList();
-            residuos.Add(objeto as Residuo);
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT * FROM Residuo";
+                MySqlCommand command = new MySqlCommand(query, connection);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos = residuos;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Residuo residuo = new Residuo
+                        {
+                            Id = reader.GetInt32("Id"),
+                            Tipo = reader.GetString("Tipo")
+                        };
+
+                        residuos.Add(residuo);
+                    }
+                }
+            }
+
+            return residuos;
         }
 
-        public void Atualizar(IObjeto objeto)
+        public Residuo ObterPorId(int id)
         {
-            //aqui sera feito o tratamento para atualizar no banco
+            Residuo residuo = null;
 
-            var residuos = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos.ToList();
-            residuos.Remove(residuos.FirstOrDefault(r => r.Id.Equals(objeto.Id)));
-            residuos.Add(objeto as Residuo);
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "SELECT * FROM Residuo WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos = residuos.OrderBy(r => r.Id);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        residuo = new Residuo
+                        {
+                            Id = reader.GetInt32("Id"),
+                            Tipo = reader.GetString("Tipo")
+                        };
+                    }
+                }
+            }
+
+            return residuo;
         }
 
-        public void Excluir(int id)
+        public int Adicionar(Residuo residuo)
         {
-            //aqui sera feito o tratamento para excluir no banco
+            int id = 0;
 
-            var residuos = VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos.ToList();
-            residuos.Remove(residuos.FirstOrDefault(r => r.Id.Equals(id)));
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "INSERT INTO Residuo (Tipo) VALUES (@Tipo)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Tipo", residuo.Tipo);
 
-            VaiSerExcluidoQuandoOBancoEstiverFuncionando.Residuos = residuos;
+                int result = command.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    id = (int)command.LastInsertedId;
+                }
+            }
+
+            return id;
+        }
+
+
+        public bool Atualizar(Residuo residuo)
+        {
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "UPDATE Residuo SET Tipo = @Tipo WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", residuo.Id);
+                command.Parameters.AddWithValue("@Tipo", residuo.Tipo);
+
+                int result = command.ExecuteNonQuery();
+
+                return result > 0;
+            }
+        }
+
+        public bool Excluir(int id)
+        {
+            using (MySqlConnection connection = dbConnection.GetConnection())
+            {
+                string query = "DELETE FROM Residuo WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
+
+                int result = command.ExecuteNonQuery();
+
+                return result > 0;
+            }
         }
     }
 }
