@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|c:\\users\\jonas.bortolini\\source\\repos\\lixozero\\lixozero\\persistencia\\ecopontopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{218E54AF-471B-40F9-839E-95CA733CC0B0}|LixoZero\\LixoZero.csproj|solutionrelative:lixozero\\persistencia\\ecopontopersistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -69,12 +73,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Program.cs",
+              "RelativeDocumentMoniker": "LixoZero\\Program.cs",
+              "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Program.cs",
+              "RelativeToolTip": "LixoZero\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T06:53:42.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "EcoPontoPersistencia.cs",
               "DocumentMoniker": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
               "RelativeDocumentMoniker": "LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
               "ToolTip": "C:\\Users\\jonas.bortolini\\source\\repos\\LixoZero\\LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
               "RelativeToolTip": "LixoZero\\Persistencia\\EcoPontoPersistencia.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAQwL8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAL8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T05:00:19.925Z",
               "EditorCaption": ""

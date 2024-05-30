@@ -11,8 +11,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-VaiSerExcluidoQuandoOBancoEstiverFuncionando.InicializarObjetos();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
