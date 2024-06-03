@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LixoZero")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b94160d8080b65c9cd3fd726adeab2dc29520a61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+608d43cb8f76067bf10b5b6b441b5b9a2d7c0c88")]
 [assembly: System.Reflection.AssemblyProductAttribute("LixoZero")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LixoZero")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
