@@ -16,24 +16,19 @@ namespace LixoZero.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
-        [Route("ObterTodos")]
+        [HttpGet("ObterTodos")]
         public IEnumerable<Publicacao> ObterTodos() => PublicacaoPersistencia.ObterTodos().OfType<Publicacao>();
 
-        [HttpPost]
-        [Route("ObterPorId")]
+        [HttpGet("{id}")]
         public Publicacao ObterPorId(int id) => PublicacaoPersistencia.ObterPorId(id) as Publicacao;
 
-        [HttpPost]
-        [Route("Adicionar")]
+        [HttpPost("{id}")]
         public int Adicionar(Publicacao publicacao) => PublicacaoPersistencia.Adicionar(publicacao);
 
-        [HttpPost]
-        [Route("Atualizar")]
+        [HttpPut]
         public bool Atualizar(Publicacao publicacao) => PublicacaoPersistencia.Atualizar(publicacao);
 
-        [HttpPost]
-        [Route("Excluir")]
+        [HttpDelete("{id}")]
         public bool Excluir(int id) => PublicacaoPersistencia.Excluir(id);
     }
 }

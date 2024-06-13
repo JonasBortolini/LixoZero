@@ -16,23 +16,19 @@ namespace LixoZero.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
-        [Route("ObterTodos")]
+        [HttpGet("ObterTodos")]
         public IEnumerable<EcoPonto> ObterTodos() => EcoPontoPersistencia.ObterTodos();
-        [HttpPost]
-        [Route("ObterPorId")]
+
+        [HttpGet("{id}")]
         public EcoPonto ObterPorId(int id) => EcoPontoPersistencia.ObterPorId(id);
 
-        [HttpPost]
-        [Route("Adicionar")]
+        [HttpPost("{id}")]
         public int Adicionar(EcoPonto ecoPonto) => EcoPontoPersistencia.Adicionar(ecoPonto);
 
-        [HttpPost]
-        [Route("Atualizar")]
+        [HttpPut]
         public bool Atualizar(EcoPonto ecoPonto) => EcoPontoPersistencia.Atualizar(ecoPonto);
 
-        [HttpPost]
-        [Route("Excluir")]
+        [HttpDelete("{id}")]
         public bool Excluir(int id) => EcoPontoPersistencia.Excluir(id);
     }
 }

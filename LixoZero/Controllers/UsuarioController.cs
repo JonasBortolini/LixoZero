@@ -16,12 +16,10 @@ namespace LixoZero.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
-        [Route("Logar")]
+        [HttpGet("{login_Email},{senha}")]
         public bool Logar(string login_Email, string senha) => UsuarioPersistencia.Logar(login_Email, senha);
 
         [HttpPost]
-        [Route("CriarLogin")]
         public bool CriarLogin(Usuario usuario) => UsuarioPersistencia.CriarLogin(usuario);
     }
 }
