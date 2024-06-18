@@ -13,7 +13,7 @@ const Map = ({ ecopontos }) => {
 
     const handleMarkerClick = (ecoponto) => {
         setSelectedEcoponto(ecoponto);
-        setDefaultCenter({ lat: ecoponto.Latitude, lng: ecoponto.Longitude });
+        setDefaultCenter({ lat: ecoponto.latitude, lng: ecoponto.longitude });
     };
 
     const handleCloseInfoWindow = () => {
@@ -28,15 +28,15 @@ const Map = ({ ecopontos }) => {
                 center={defaultCenter}
             >
             {ecopontos.map(ecoponto => (
-                <Marker key={ecoponto.Id}
-                    position={{ lat: ecoponto.Latitude, lng: ecoponto.Longitude }}
+                <Marker key={ecoponto.id}
+                    position={{ lat: ecoponto.latitude, lng: ecoponto.longitude }}
                     onClick={() => handleMarkerClick(ecoponto)}
                     clickable={true}
                 />
             ))}
             {selectedEcoponto && (
                 <InfoWindow
-                    position={{ lat: selectedEcoponto.Latitude, lng: selectedEcoponto.Longitude }}
+                    position={{ lat: selectedEcoponto.latitude, lng: selectedEcoponto.longitude }}
                     onCloseClick={handleCloseInfoWindow}
                     options={{
                         maxWidth: 300,
@@ -50,9 +50,9 @@ const Map = ({ ecopontos }) => {
                         closeBoxMargin: '8px 8px 0 0'
                     }}>
                     <div className='infos'>
-                        <h3>{selectedEcoponto.Nome}</h3>
-                        <p>Endereço: {selectedEcoponto.Endereco}</p>
-                        <p>Horário de Funcionamento: {selectedEcoponto.HorarioFuncionamento}</p>
+                        <h3>{selectedEcoponto.nome}</h3>
+                        <p>Endereço: {selectedEcoponto.endereco}</p>
+                        <p>Horário de Funcionamento: {selectedEcoponto.horarioFuncionamento}</p>
                     </div>
                 </InfoWindow>
             )}
