@@ -1,115 +1,59 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/educacional.css'
 import ImagemLixo from '../assets/ImagenLixo.png';
+import { getPublicacoes, getResiduos } from '../services/apiService';
 
-const Residuos = [
-    {
-        "Id": 1,
-        "Tipo": "Vidro"
-    },
-    {
-        "Id": 2,
-        "Tipo": "Metal"
-    },
-    {
-        "Id": 3,
-        "Tipo": "Papel"
-    },
-    {
-        "Id": 4,
-        "Tipo": "Plástico"
-    },
-    {
-        "Id": 5,
-        "Tipo": "Orgânico"
-    },
-    {
-        "Id": 6,
-        "Tipo": "Eletrônico"
-    },
-    {
-        "Id": 7,
-        "Tipo": "Outro"
-    }
-]
-
-const Publicacoes = [
-    {
-        "Id": 1,
-        "Titulo": "A importância da reciclagem",
-        "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida sapien quis suscipit ultricies. Cras pulvinar sem et ante eleifend, vel aliquam ipsum congue.",
-        "Imagem": "ImagemLixo.png",
-        "Data": "2024-05-07",
-        "Slug": "a-importancia-da-reciclagem",
-        "Residuos": [
-            {"Id": 1, "Tipo": "Plástico"},
-            {"Id": 2, "Tipo": "Papel"}
-        ]
-    },
-    {
-        "Id": 2,
-        "Titulo": "Novas tecnologias para tratamento de resíduos",
-        "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget nisi eu nisl iaculis interdum. Quisque nec pretium elit, nec venenatis mi. Integer at justo leo. ",
-        "Imagem": "ImagemLixo.png",
-        "Data": "2024-05-06",
-        "Slug": "novas-tecnologias-para-tratamento-de-residuos",
-        "Residuos": [
-            {"Id": 3, "Tipo": "Vidro"},
-            {"Id": 4, "Tipo": "Metal"}
-        ]
-    },
-    {
-        "Id": 3,
-        "Titulo": "Redução do consumo de plástico",
-        "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo, magna ut tincidunt lobortis, libero magna vehicula nunc, nec pellentesque quam ipsum et sapien.",
-        "Imagem": "ImagemLixo.png",
-        "Data": "2024-05-05",
-        "Slug": "reducao-do-consumo-de-plastico",
-        "Residuos": [
-            {"Id": 1, "Tipo": "Plástico"}
-        ]
-    },
-    {
-        "Id": 4,
-        "Titulo": "Como reciclar papel corretamente",
-        "Conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id felis a justo vestibulum sollicitudin eu vitae elit. Nam sed ex at lectus ultricies rutrum.",
-        "Imagem": "ImagemLixo.png",
-        "Data": "2024-05-04",
-        "Slug": "como-reciclar-papel-corretamente",
-        "Residuos": [
-            {"Id": 2, "Tipo": "Papel"}
-        ]
-    }
-]
 
 function Educacional() {
+    const [publicacoes, setPublicacoes] = useState([]);
+    const [residuos, setResiduos] = useState([]);
+    const [selectedResiduo, setSelectedResiduo] = useState('');
 
-    const [filtroResiduo, setFiltroResiduo] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [ecopontosData, residuosData] = await Promise.all([
+                    getPublicacoes(),
+                    getResiduos()
+                ]);
+                setResiduos(residuosData);
+                setPublicacoes(ecopontosData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
 
-    const handleFiltroChange = (event) => {
-        setFiltroResiduo(event.target.value);
+        fetchData();
+    }, []);
+
+    const handleChange = (event) => {
+        setSelectedResiduo(event.target.value);
     };
 
-    const publicacoesFiltradas = filtroResiduo ? 
-        Publicacoes.filter(publicacao => publicacao.Residuos.some(residuo => residuo.Tipo === filtroResiduo)) : 
-        Publicacoes;
+    const publicacoesFiltradas = selectedResiduo ? 
+        publicacoes.filter(publicacao => publicacao.residuos.some(residuo => residuo.tipo === selectedResiduo)) : 
+        publicacoes;
 
     return <div className='educacional-container'>
         <h1 className="h1">Educacional</h1>
-        <select onChange={handleFiltroChange}>
+        <select onChange={handleChange}>
             <option value="" hidden>Selecione um resíduo</option>
-            {Residuos.map(residuo => (
-                <option key={residuo.Id} value={residuo.Tipo}>{residuo.Tipo}</option>
+            {residuos.map(residuo => (
+                <option key={residuo.Id} value={residuo.tipo}>{residuo.tipo}</option>
             ))}
         </select>
         <div className='publicacoes'>
             {publicacoesFiltradas.map(publicacao => (
-                <a className='publicacao' href={`educacional/${publicacao.Slug}`} key={publicacao.Id}>
-                    <img src={ImagemLixo} alt={publicacao.Titulo} />
-                    <h3 className='title'>{publicacao.Titulo}</h3>
-                    <p className='date'>Data: {publicacao.Data}</p>
-                    {publicacao.Residuos.length > 0 && (
-                        <p className='category'>{publicacao.Residuos[0].Tipo}</p>
+                <a className='publicacao' href={`educacional/${publicacao.id}`} key={publicacao.id}>
+                    <img src={ImagemLixo} alt={publicacao.titulo} />
+                    <h3 className='title'>{publicacao.titulo}</h3>
+                    <p className='date'>Data: {publicacao.data}</p>
+                    {publicacao.residuos.length > 0 && (
+                        <div className="categories">
+                            {publicacao.residuos.map(residuo => (
+                                <p className='category'>{residuo.tipo}</p>
+                            ))}
+                        </div>
                     )}
                 </a>
             ))}

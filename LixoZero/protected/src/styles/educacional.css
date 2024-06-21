@@ -60,7 +60,7 @@ select:focus {
     box-shadow: 0 0 10px 10px rgba(0,0,0,0.2);
 }
 
-.publicacoes .publicacao .category {
+.publicacoes .publicacao .categories {
     position: absolute;
     top: 50px;
     right: -20px;

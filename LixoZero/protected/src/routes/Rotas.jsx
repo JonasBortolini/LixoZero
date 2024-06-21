@@ -15,7 +15,7 @@ function Rotas() {
         <Route path="/" element={<Navigate to="/ecopontos" />} />
         <Route path="/ecopontos" element={<Ecopontos />} />
         <Route path="/educacional" element={<Educacional />} />
-        <Route path="/educacional/:slug" element={<EducacionalDetalhe />} />
+        <Route path="/educacional/:id" element={<EducacionalDetalhe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
